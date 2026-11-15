@@ -1,4 +1,4 @@
-package com.classicmotor.model;
+package com.classicmotor.classic_motor_backend.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.classicmotor.classic_motor_backend;
+package com.classicmotor.classic_motor_backend.controller;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
