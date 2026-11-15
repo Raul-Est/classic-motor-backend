@@ -1,6 +1,6 @@
 package com.classicmotor.classic_motor_backend.repository;
 
-import com.classicmotor.classic_motor_backend.model.Vehicles;
+import com.classicmotor.classic_motor_backend.model.Vehicle;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,11 +16,12 @@ public class VehiclesRepository {
     }
 
     // Obtener todos los vehículos de MySQL
-    public List<Vehicles> findAll() {
+    public List<Vehicle> findAll() {
         String sql = "SELECT * FROM vehiculos ORDER BY id";
         return jdbc.query(sql, (rs, rowNum) -> {
 
-            Vehicles vehiculo = new Vehicles();
+            Vehicle vehiculo = new Vehicle();
+            
             // Identificar el vehículo en la base de datos por su ID y slug
             vehiculo.setId(rs.getInt("id"));
             vehiculo.setSlug(rs.getString("slug"));

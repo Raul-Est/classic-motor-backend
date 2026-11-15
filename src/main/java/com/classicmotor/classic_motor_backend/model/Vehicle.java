@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Vehicles {
+public class Vehicle {
     private Integer id;       // PK en BD
     private String slug;              // Slug del vehículo (ej: "jaguar-e-type")
     private String marca;            // Marca del vehículo (ej: "Jaguar")   

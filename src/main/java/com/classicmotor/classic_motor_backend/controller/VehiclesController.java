@@ -1,6 +1,6 @@
 package com.classicmotor.classic_motor_backend.controller;
 
-import com.classicmotor.classic_motor_backend.model.Vehicles;
+import com.classicmotor.classic_motor_backend.model.Vehicle;
 import com.classicmotor.classic_motor_backend.repository.VehiclesRepository;
 
 import org.springframework.data.domain.Page;
@@ -28,7 +28,7 @@ public class VehiclesController {
     // GET /api/v1/vehicles
     // Devuelve los vehículos paginados
     @GetMapping
-    public ResponseEntity<PagedModel<Vehicles>> listVehicles(
+    public ResponseEntity<PagedModel<Vehicle>> listVehicles(
             @PageableDefault(size = 20) Pageable pageable) {
 
         // Validar los parámetros de paginación
@@ -37,7 +37,7 @@ public class VehiclesController {
         }
 
         // Obtener los vehículos desde MySQL
-        List<Vehicles> vehicles = repository.findAll();
+        List<Vehicle> vehicles = repository.findAll();
 
         // Calcular los índices de la página solicitada
         int total = vehicles.size();
@@ -49,7 +49,7 @@ public class VehiclesController {
         );
 
         // Construir la página de resultados
-        Page<Vehicles> page = new PageImpl<>(
+        Page<Vehicle> page = new PageImpl<>(
                 vehicles.subList(inicio, fin),
                 pageable,
                 total
