@@ -17,6 +17,14 @@ public class NhtsaImportController {
     public NhtsaImportController(NhtsaImportService service) {
         this.service = service;
     }
+    
+    @PostMapping("/all")
+    public ResponseEntity<Map<String, Integer>> importAll() {
+
+        Map<String, Integer> results = service.importMakes();
+
+        return ResponseEntity.ok(results);
+    }
 
     // Importar modelos de Jaguar o Porsche
     @PostMapping("/{make}")

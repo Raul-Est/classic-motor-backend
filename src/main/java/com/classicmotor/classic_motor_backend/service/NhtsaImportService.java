@@ -160,6 +160,45 @@ public class NhtsaImportService {
         }
     }
 
+    /**
+     * Importar varias marcas de vehículos desde NHTSA.
+     * Reutiliza el método importMake() para cada fabricante.
+     * Los registros se guardan pendientes de revisión.
+     */
+    public Map<String, Integer> importMakes() {
+
+        List<String> makes = List.of(
+            "Jaguar",
+            "Porsche",
+            "Ferrari",
+            "Aston Martin",
+            "Alfa Romeo",
+            "Mercedes-Benz",
+            "BMW",
+            "Volkswagen",
+            "Ford",
+            "Chevrolet",
+            "Rolls-Royce",
+            "Bentley",
+            "Lamborghini",
+            "Maserati",
+            "Lotus"
+        );
+
+        Map<String, Integer> results =
+            new java.util.LinkedHashMap<>();
+
+        for (String make : makes) {
+
+            // Importar una marca y registrar los insertados
+            int inserted = importMake(make);
+
+            results.put(make, inserted);
+        }
+
+        return results;
+    }
+
     // Convertir un valor recibido en texto válido
     private String text(Object value) {
 
